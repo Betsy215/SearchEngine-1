@@ -1,6 +1,5 @@
 #Author : Krishna Sai P B V
-#Purpose: Vector space model- jmercertf retrieval model implementation
-#	  for the developed search engine
+#Purpose: Parse queries before giving to search engine
 #Data:	  April 14th, 2012 
 
 #Input to this file is the list of queries.
