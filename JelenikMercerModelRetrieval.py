@@ -1,5 +1,5 @@
 #Author : Krishna Sai P B V
-#Purpose: Vector space model- jmercertf retrieval model implementation
+#Purpose: Jelenik Mercer retrieval model implementation
 #	  for the developed search engine
 #Data:	  April 12th, 2012 
 
@@ -15,9 +15,10 @@ import sys, string, re, os, subprocess, urllib, operator
 from sys import stdout
 import operator,math
 
+#Variables, dictionaries, arrays needed
+#to store the data.
 totalQueryNum=64
 filetoprint=open('JMercerOutput.txt', "w")
-
 querytf={}
 docLen={}
 dup={}
@@ -43,7 +44,7 @@ for line in file3:
 	doclen=int(line[1])
 	docLen[dociD]=doclen
 
-#Finding the word index
+#Finding the word index in the file
 def findIndex(word,rawtf):
 	#print "ctf","    ","df"
 	ctf=0
@@ -73,9 +74,10 @@ def findIndex(word,rawtf):
 			rawtf[docid].append(toAppend)
 	return ctf
 			
-
+#Dictionaries storing the data
 jmercer_ext={}
 jmercertf={}
+
 #Caluclating the score for Jmercer smoothing
 def caluclate_jmercer(url_narrative):
 	ind=url_narrative.index(" ")
@@ -131,7 +133,7 @@ def caluclate_jmercer(url_narrative):
 			filetoprint.write(str(queryNum) + " " + "Q0" + " " +str(jmercer_ext[key]) + " " + str(i) + " " + str(value) + " " +"Exp")
 			filetoprint.write("\n")		
 			i=i+1
-		
+#Write to file		
 f = open(sys.argv[1],mode="r")
 for q in f:
 	print "Query being processed: %s" %(q)	
