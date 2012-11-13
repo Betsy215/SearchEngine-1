@@ -1,5 +1,5 @@
 #Author : Krishna Sai P B V
-#Purpose: Vector space model- jmercertf retrieval model implementation
+#Purpose: BM25 retrieval model implementation
 #	  for the developed search engine
 #Data:	  April 12th, 2012 
 
@@ -15,6 +15,7 @@ import sys, string, re, os, subprocess, urllib, operator
 from sys import stdout
 import operator,math
 
+#Dictionaries, arrays, variables needed
 totalQueryNum=64
 filetoprint=open('filetoPrint3.txt', "w")
 bmtf={}
@@ -127,7 +128,8 @@ def caluclate_bm25(query):
 			filetoprint.write(str(queryNum) + " " + "Q0" + " " +str(bmtf_ext[key]) + " " + str(i) + " " + str(value) + " " +"Exp")
 			filetoprint.write("\n")		
 			i=i+1
-		
+	
+#File to read queries from
 f = open(sys.argv[1],mode="r")
 for q in f:
 	print "Query being processed: %s" %(q)	
